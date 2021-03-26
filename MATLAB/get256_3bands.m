@@ -6,7 +6,7 @@
 
 clear;
 fetchme = dir('F_3bands*.tif');
-k =2;
+k = 6; % vary number
 img = imread(fetchme(k).name);
 file_name = fetchme(k).name;
 % imshow(img);
