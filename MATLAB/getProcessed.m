@@ -2,10 +2,7 @@
 % (1) Reads : *foc.png & *1024-Sim.png
 % (2) Convert images to grayscale and resize
 % (3) Register the simulated image
-% (4) Creates the Norm feature
-% (5) Creates register.tif, resize.tif and norm.tif
-% (5) Crops image to ROI
-% (5) Creates F_3bands.tif feature image
+% (4) Creates register.tif, resize.tif
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear;
@@ -47,9 +44,9 @@ for i=1:size(a,1)
     imwrite(foc_resize, strcat('resize_',name,'.tif'));
     
     % create norm file
-    norm = mat2gray(foc_resize) - mat2gray(movingReg);
-    norm = (norm - min(min(norm)))./(max(max(norm)) - min(min(norm)));
-    imwrite(double(norm),strcat('norm',name,'.tif'));
+    %norm = mat2gray(foc_resize) - mat2gray(movingReg);
+    %norm = (norm - min(min(norm)))./(max(max(norm)) - min(min(norm)));
+    %imwrite(double(norm),strcat('norm_',name,'.tif'));
 
     % can ommit this part; only to reduce rows
     %     imwrite(movingReg(425:680,:),'F_register.tif');
